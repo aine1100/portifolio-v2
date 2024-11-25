@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <div className='bg-bgImage bg-cover bg-center h-screen  overflow-x-hidden'>
+      <div className='bg-bgImage bg-cover bg-center h-screen  overflow-x-hidden md:px-20'>
         <div className='z-50'>
         <Navbar/>
         <Hero/>
