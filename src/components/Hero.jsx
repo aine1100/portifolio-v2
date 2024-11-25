@@ -14,7 +14,7 @@ export default function Hero(){
         },
     ]
     return(
-        <div className="pb-28  px-10 md:px-0 container mx-auto flex flex-col md:flex-row justify-center items-center gap-10  md:justify-between">
+        <div className="pb-28  px-16 md:px-0 container mx-auto flex flex-col md:flex-row justify-center items-center gap-10  md:justify-between">
            <div className="flex pt-20 flex-col items-center md:items-start  gap-10 px-10">
            <h1 className="text-gray-900 text-[40px] font-bold">Hello,I'm<br/>Dushimire Aine </h1>
             <p className="text-gray-600">I'm a Freelance UI/UX Designer and Developer based in Kigali, Rwanda. I <br/> strives to build immersive and beautiful web applications through<br/> carefully crafted code and user-centric design.</p>
