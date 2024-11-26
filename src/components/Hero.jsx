@@ -35,7 +35,7 @@ export default function Hero(){
 
 
            </div>
-           <img src="/aine.jpeg" alt="" className="w-28 md:w-[350px] rounded-full" />
+           <img src="/aine.jpeg" alt="" className="w-28 md:w-[350px] rounded-full md:pr-10" />
 
 
         </div>
