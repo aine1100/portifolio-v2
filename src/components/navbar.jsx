@@ -34,11 +34,10 @@ export default function Navbar() {
                     : "bg-transparent"
             }`}
         >
-            <div className="container mx-auto flex items-center justify-between bg-white text-gray-600">
-                <div className="flex items-center justify-center gap-5">
-                    <div className="bg-[#A53DFF] w-10 h-10 rounded-full items-center flex justify-center text-center">
-                        <h1 className="text-white text-2xl font-semibold">D</h1>
-                    </div>
+            <div className="container mx-auto flex items-center justify-between bg-white text-gray-600 p-4">
+                <div className="flex items-center justify-center gap-5 ">
+                <img src="/aine.jpeg" alt="" className="w-10 h-10 rounded-full" />
+
                     <h2>Dushimire</h2>
                 </div>
 
