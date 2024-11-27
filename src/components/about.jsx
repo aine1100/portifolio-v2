@@ -49,7 +49,7 @@ export default function AboutMe() {
     };
 
     return (
-        <div className="container mx-auto p-10 flex flex-col md:flex-row items-center justify-between md:justify-center shadow-md md:gap-[300px]">
+        <div className="container mx-auto p-10 flex flex-col md:flex-row items-center justify-between md:justify-center shadow-sm md:gap-[300px]">
             <img src="/aine.jpeg" alt="" className="w-28 md:w-[350px] rounded-md" />
             <div className="flex flex-col text-center md:text-left text-gray-600 gap-4">
                 <h2 className="text-xl md:text-left text-center p-2 md:p-0 font-semibold text-black">

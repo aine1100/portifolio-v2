@@ -28,7 +28,7 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`w-full px-4 pb-4  h-[4rem] sticky top-0 z-50 transition-all duration-300 ${
+            className={`w-full px-4 pb-4  h-[4rem] sticky top-0 w-screen z-50 transition-all duration-300 ${
                 isScrolled
                     ? "bg-white bg-opacity-70 shadow-md backdrop-blur-md"
                     : "bg-transparent"
