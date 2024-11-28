@@ -4,12 +4,12 @@ import { FaX } from "react-icons/fa6";
 
 export default function Navbar() {
     const tabs = [
-        { name: "Home", path: "#home" },
-        { name: "About", path: "#about" },
-        { name: "Techstacks", path: "#techstacks" },
-        { name: "Portfolio", path: "#portfolio" },
-        { name: "Services", path: "#services" },
-        { name: "Contacts", path: "#contacts" },
+        { name: "Home", path: "home" },
+        { name: "About", path: "about" },
+        { name: "Techstacks", path: "techstacks" },
+        { name: "Portfolio", path: "portfolio" },
+        { name: "Services", path: "services" },
+        { name: "Contacts", path: "contacts" },
     ];
 
     const [isScrolled, setIsScrolled] = useState(false);
@@ -25,6 +25,13 @@ export default function Navbar() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    const handleScrollToSection = (sectionId) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
 
     return (
         <nav
@@ -47,9 +54,9 @@ export default function Navbar() {
                 {/* Desktop Menu */}
                 <div className="hidden md:flex gap-5 items-center px-2">
                     {tabs.map((tab, index) => (
-                        <a
-                            href={tab.path}
+                        <button
                             key={index}
+                            onClick={() => handleScrollToSection(tab.path)}
                             className={`text-sm font-medium hover:text-gray-900 transition-all duration-300 ${
                                 index === tabs.length - 1
                                     ? "bg-[#A53DFF] text-white px-4 py-2 rounded-md"
@@ -59,7 +66,7 @@ export default function Navbar() {
                             }`}
                         >
                             {tab.name}
-                        </a>
+                        </button>
                     ))}
                 </div>
 
@@ -79,10 +86,12 @@ export default function Navbar() {
                 <div className="md:hidden bg-white absolute top-16 left-0 w-full shadow-lg z-40">
                     <div className="flex flex-col items-center py-4 space-y-2">
                         {tabs.map((tab, index) => (
-                            <a
-                                href={tab.path}
+                            <button
                                 key={index}
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => {
+                                    handleScrollToSection(tab.path);
+                                    setIsOpen(false); // Close menu after clicking
+                                }}
                                 className={`text-md font-medium ${
                                     index === tabs.length - 1
                                         ? "bg-[#A53DFF] text-white px-4 py-2 rounded-md w-32 text-center"
@@ -90,7 +99,7 @@ export default function Navbar() {
                                 }`}
                             >
                                 {tab.name}
-                            </a>
+                            </button>
                         ))}
                     </div>
                 </div>
