@@ -32,46 +32,33 @@ export default function Project() {
         {
             title: "Design",
             stack: {
-                icons: ["/neurolab.png", "/neurolab.png", "/neurolab.png", "/neurolab.png", "/neurolab.png", "/neurolab.png"],
-                stackItems: ["NeuroLab", "Job Seeker", "Copic", "TravelBag", "Hello Tractor", "Simple Expense Tracker"],
+                icons: ["/image copy 5.png", "/image copy 6.png", "/image copy 7.png",],
+                stackItems: ["Sawapay", "Gymn Fitness", "Ganira"],
                 description: [
-                    "This is a frontend project of neurolab project ",
-                    "This is a frontend project of Job Seeker",
-                    "This is a frontend project of Copic project",
-                    "This is a frontend project of TravelBag",
-                    "This is a frontend project of Hello Tractor",
-                    "This is a frontend project of Simple Expense Tracker",
+                    "This is a design project of SawaPay website ",
+                    "This is a design project of Gymn Fitness website",
+                    "This is a design project of Ganira chatbot website",
+                    
+                  
                 ],
                 links: [
                     "https://neuro-lab-web.vercel.app/",
                     "https://job-bqyyti362-aine.vercel.app/",
                     "https://colic.vercel.app",
-                    "https://travel-bag-ox6y.vercel.app/",
-                    "",
-                    "https://simple-expense-tracker-dun.vercel.app/",
+                   
                 ],
             },
         },
         {
             title: "Mobile Development",
             stack: {
-                icons: ["/neurolab.png", "/neurolab.png", "/neurolab.png", "/neurolab.png", "/neurolab.png", "/neurolab.png"],
-                stackItems: ["NeuroLab", "Job Seeker", "Copic", "TravelBag", "Hello Tractor", "Simple Expense Tracker"],
+                icons: [],
+                stackItems: [],
                 description: [
-                    "This is a frontend project of neurolab",
-                    "This is a frontend project of Job Seeker",
-                    "This is a frontend project of Copic",
-                    "This is a frontend project of TravelBag",
-                    "This is a frontend project of Hello Tractor",
-                    "This is a frontend project of Simple Expense Tracker",
+                    
                 ],
                 links: [
-                    "https://neuro-lab-web.vercel.app/",
-                    "https://job-bqyyti362-aine.vercel.app/",
-                    "https://colic.vercel.app",
-                    "https://travel-bag-ox6y.vercel.app/",
-                    "",
-                    "https://simple-expense-tracker-dun.vercel.app/",
+                    
                 ],
             },
         },

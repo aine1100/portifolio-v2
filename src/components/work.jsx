@@ -1,6 +1,6 @@
 export default function workWithMe(){
     return(
-        <div className="p-10 bg-[#132238] w-full h-[300px]">
+        <div className="p-10 bg-[#132238] w-screen h-[300px]">
             <div className="container mx-auto flex flex-col gap-5 items-center justify-center text-center ">
                 <h1 className="w-[300px] text-2xl text-white font-bold">Do you have Project Idea?
                 Let's discuss your project!</h1>

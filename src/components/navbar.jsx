@@ -28,21 +28,24 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`w-full px-4 pb-4  h-[4rem] sticky top-0 w-screen z-50 transition-all duration-300 ${
+            className={`pb-4 h-[4rem] sticky top-0 w-screen z-50 transition-all duration-300 ${
                 isScrolled
                     ? "bg-white bg-opacity-70 shadow-md backdrop-blur-md"
                     : "bg-transparent"
             }`}
         >
-            <div className="container mx-auto flex items-center justify-between bg-white text-gray-600 p-4">
-                <div className="flex items-center justify-center gap-5 ">
-                <img src="/aine.jpeg" alt="" className="w-10 h-10 rounded-full" />
-
+            <div className="flex items-center justify-between lg:p-4 bg-white text-gray-600 md:w-screen lg:px-4 lg:container lg:mx-auto">
+                <div className="flex items-center gap-5">
+                    <img
+                        src="/aine.jpeg"
+                        alt=""
+                        className="w-10 h-10 rounded-full"
+                    />
                     <h2>Dushimire</h2>
                 </div>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex gap-5 items-center">
+                <div className="hidden md:flex gap-5 items-center px-2">
                     {tabs.map((tab, index) => (
                         <a
                             href={tab.path}
