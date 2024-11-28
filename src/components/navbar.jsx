@@ -35,13 +35,13 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`pb-4 h-[4rem] px-4 md:px-0 sticky top-0 w-screen z-50 transition-all duration-300 ${
+            className={`pb-4 h-[4rem] md:px-0 sticky -top-0 w-screen z-50 transition-all duration-300 ${
                 isScrolled
                     ? "bg-white bg-opacity-70 shadow-md backdrop-blur-md"
                     : "bg-transparent"
             }`}
         >
-            <div className="flex items-center justify-between lg:p-4 bg-white text-gray-600 md:w-screen lg:px-4 lg:container lg:mx-auto">
+            <div className="flex items-center justify-between p-4 bg-white text-gray-600 md:w-screen lg:px-4 lg:container lg:mx-auto">
                 <div className="flex items-center gap-5">
                     <img
                         src="/aine.jpeg"
