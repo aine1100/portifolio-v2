@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/navbar";
 import Hero from "./components/Hero";
@@ -9,28 +9,48 @@ import Contact from "./components/contact";
 import Footer from "./components/footer";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a loading delay (e.g., fetching resources)
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // 2 seconds delay
+
+    return () => clearTimeout(timer); // Cleanup timer
+  }, []);
+
   return (
-      <div className="bg-bgImage bg-cover bg-center h-screen overflow-x-hidden">
+    <>
+      {isLoading ? (
+        <div className="loading-screen">
+          <div className="spinner"></div>
+          <p>Loading...</p>
+        </div>
+      ) : (
+        <div className="bg-bgImage bg-cover bg-center h-screen overflow-x-hidden">
           <Navbar />
-          <section id="home" className="">
-              <Hero />
+          <section id="home">
+            <Hero />
           </section>
-          <section id="about" className="">
-              <AboutMe />
+          <section id="about">
+            <AboutMe />
           </section>
-          <section id="techstacks" className="">
-              <Project />
+          <section id="techstacks">
+            <Project />
           </section>
-          <section id="portfolio" className="">
-              <WorkWithMe />
+          <section id="portfolio">
+            <WorkWithMe />
           </section>
-          <section id="services" className="">
-              <Contact />
+          <section id="services">
+            <Contact />
           </section>
-          <section id="contacts" className="">
-              <Footer />
+          <section id="contacts">
+            <Footer />
           </section>
-      </div>
+        </div>
+      )}
+    </>
   );
 }
 
