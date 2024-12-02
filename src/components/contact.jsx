@@ -35,7 +35,7 @@ export default function Contact() {
         },
         {
             icon: <FaLinkedin />,
-            url: "https://www.linkedin.com/in/aine-dushimire-4b3518206/",
+            url: "https://www.linkedin.com/in/aine-dushiimire-700a372a6/",
         },
         {
             icon: <FaGithub />,
