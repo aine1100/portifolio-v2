@@ -42,9 +42,9 @@ export default function Project() {
                   
                 ],
                 links: [
-                    "https://neuro-lab-web.vercel.app/",
-                    "https://job-bqyyti362-aine.vercel.app/",
-                    "https://colic.vercel.app",
+                    "https://www.figma.com/design/ModrnmYkkBs4nmZLakDfX3/SAWA-PAY?node-id=0-1&node-type=canvas&t=7FU33trcvKXesgve-0",
+                    "https://www.figma.com/design/SLYbIC6ECB7zhXKX4g0t6x/Gymn-center-Landing-page?node-id=0-1&node-type=canvas&t=DeytUqsm8VbbhiCT-0",
+                    "https://www.figma.com/design/OGww7VII69BFXIMJ5SpKfm/Risa-gbv?m=auto&t=tVTMgjmI6erKrFhn-6",
                    
                 ],
             },
