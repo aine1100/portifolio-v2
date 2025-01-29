@@ -32,14 +32,14 @@ export default function Project() {
         {
             title: "Design",
             stack: {
-                icons: ["/image copy 5.png", "/image copy 6.png", "/image copy 7.png", "/image copy 7.png","/image copy 7.png"],
-                stackItems: ["Sawapay", "Gymn Fitness", "Ganira","Umurava CareerTicket","Torty Fitness"],
+                icons: ["/image copy 5.png", "/image copy 6.png", "/image copy 7.png", "/umura.png",],
+                stackItems: ["Sawapay", "Gymn Fitness", "Ganira","Umurava CareerTicket",],
                 description: [
                     "This is a design project of SawaPay website ",
                     "This is a design project of Gymn Fitness website",
                     "This is a design project of Ganira chatbot website",
                     "This is the design of Umurava Career Ticket website",
-                    "This is a fitness Mobile website"
+                 
                     
                   
                 ],
@@ -48,7 +48,7 @@ export default function Project() {
                     "https://www.figma.com/design/SLYbIC6ECB7zhXKX4g0t6x/Gymn-center-Landing-page?node-id=0-1&node-type=canvas&t=DeytUqsm8VbbhiCT-0",
                     "https://www.figma.com/design/OGww7VII69BFXIMJ5SpKfm/Risa-gbv?m=auto&t=tVTMgjmI6erKrFhn-6",
                     "https://www.figma.com/design/KbRFMBoYHVS5h42b96NoVF/Umurava-Career-Ticket?node-id=4-222&t=dtLHuh3aoPJ1BmhD-0",
-                    "https://www.figma.com/design/ZCw8V66zfX8QjvQzlM24tn?fuid=1292743657495532123&prev-plan-id=1445442273127244365&prev-plan-type=team"
+                 
                    
                 ],
             },
