@@ -7,6 +7,7 @@ import Project from "./components/project";
 import WorkWithMe from "./components/work";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
+import WorkExperience from "./components/experience"
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -38,12 +39,16 @@ function App() {
           </section>
           <section id="techstacks">
             <Project />
+            <WorkExperience/>
+          
           </section>
           <section id="portfolio">
             <WorkWithMe />
+            
           </section>
           <section id="services">
             <Contact />
+
           </section>
           <section id="contacts">
             <Footer />

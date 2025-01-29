@@ -9,7 +9,7 @@ export default function Footer() {
                 <p>Dushimire Aine all rights reserved</p>
 
             </div>
-            <p className="text-white text-opacity-75">Made by Dushimire Aine</p>
+            <p className="text-white text-opacity-75">Made by Dushimire Aine 2025</p>
             
 
         </div>
