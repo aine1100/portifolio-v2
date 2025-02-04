@@ -48,6 +48,11 @@ export default function AboutMe() {
         setActiveStack(activeStack === index ? null : index);
     };
 
+    function handleDownload(){
+        const url='https://drive.google.com/drive/folders/1K_01CNapPNNnbEGBgJ_D_nlnlrLbR1aE?usp=sharing'
+        window.open(url)
+    }
+
     return (
         <div className="container mx-auto p-10 flex flex-col lg:flex-row items-center justify-between md:justify-center shadow-sm md:gap-[300px]">
             <img src="/aine.jpeg" alt="" className="w-28  lg:w-[350px] rounded-md" />
@@ -67,7 +72,7 @@ export default function AboutMe() {
                     <button className="w-40 h-14 text-white font-semibold rounded-md bg-[#A53DFF] transition-all duration-300">
                         My Project
                     </button>
-                    <button className="w-40 h-14 font-semibold rounded-md bg-white border-[1.5px] border-[#A53DFF] text-[#A53DFF] transition-all duration-300">
+                    <button className="w-40 h-14 font-semibold rounded-md bg-white border-[1.5px] border-[#A53DFF] text-[#A53DFF] transition-all duration-300" onClick={handleDownload}>
                         Download CV
                     </button>
                 </div>
