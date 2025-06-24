@@ -77,7 +77,7 @@ export default function Project() {
                     ["Figma", "Adobe Photoshop"],
                 ],
                 links: [
-                    "https://www.figma.com/design/vGOGJ3RXIc0cCTtaMlU9jE/Fitness-Activity-Mobile-App-UI-Design--Community-?node-id=0-1&p=f&t=V9pFSLufHBB2O8vQ-0",
+                    "https://www.figma.com/design/hg2hMxL9go0lcXwA2U1l4Q/fitness-app?node-id=43-612&t=JZiGC52rMCKaOnVz-0",
                     "https://www.figma.com/design/bkxykvSJK5cju1lEfURypZ/e_record?node-id=1-2&t=zaVmlj45ThjjMBpb-0",
                     "https://www.figma.com/design/7WnjBwzjVcyCwRxu8cxBCH/Yitegere",
                     "https://www.figma.com/design/ModrnmYkkBs4nmZLakDfX3/SAWA-PAY?node-id=0-1&node-type=canvas&t=7FU33trcvKXesgve-0",
