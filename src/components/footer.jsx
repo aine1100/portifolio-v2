@@ -26,7 +26,7 @@ export default function Footer() {
           className="flex items-center gap-4"
         >
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/aine1100"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white text-opacity-75 hover:text-[#A53DFF] transition-colors duration-300"
@@ -35,7 +35,7 @@ export default function Footer() {
             <FaGithub size={24} />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://linkedin.com/in/dushimireaine"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white text-opacity-75 hover:text-[#A53DFF] transition-colors duration-300"
@@ -44,7 +44,7 @@ export default function Footer() {
             <FaLinkedin size={24} />
           </a>
           <a
-            href="https://twitter.com/yourusername"
+            href="https://twitter.com/ainedushimire"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white text-opacity-75 hover:text-[#A53DFF] transition-colors duration-300"

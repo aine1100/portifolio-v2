@@ -3,26 +3,39 @@ import { motion } from "framer-motion";
 const Experience = () => {
   const timelineData = [
     {
-      date: "August 2024 - Present",
+      date: "August 2024 - January 2025",
       title: "Frontend Developer & Designer - Insta Health",
       description:
         "Collaborated with a cross-functional team to develop responsive web and mobile applications for a healthcare platform. Designed intuitive user interfaces and implemented performant frontend solutions to enhance patient engagement and streamline health service delivery.",
       techStack: ["React", "Tailwind CSS", "Figma", "TypeScript", "Vite"],
     },
     {
-      date: "January 2025 - Present",
+      date: "January 2025 - April 2025",
       title: "Product Designer - StoryLoom AI",
       description:
         "Led UI/UX design initiatives for an AI-driven storytelling platform, creating modern and user-centric interfaces. Conducted user research, prototyped designs, and collaborated with developers to ensure pixel-perfect implementation of visually appealing layouts.",
       techStack: ["Figma", "Adobe XD", "Sketch", "Miro"],
     },
+    {
+      date: "January 2025 - April 2025",
+      title: "Software Developer - FinitePay",
+      description:
+        "Led UI/UX design initiatives for fintech platform , creating modern and user-centric interfaces. Conducted user research, prototyped designs, and collaborated with developers to ensure pixel-perfect implementation of visually appealing layouts. Helped in the development of a secure and scalable payment processing system, enhancing transaction efficiency and user experience.",
+      techStack: ["Figma", "Adobe XD", "Next Js","Typescript","Firebase"],
+    },
+    
+    {
+      date: "April 2025 - Present",
+      title: "Ui and Ux Designer - Loxotech Ltd Rwanda",
+      description:
+        "Led UI/UX design initiatives for different company projects , creating modern and user-centric interfaces. Conducted user research, prototyped designs, and collaborated with developers to ensure pixel-perfect implementation of visually appealing layouts.",
+      techStack: ["Figma", "Adobe XD", "Miro"],
+    },
   ];
 
   return (
-    <div className="container mx-auto px-4 py-12 md:py-20 w-full">
-      <h2 className="text-3xl md:text-5xl font-bold text-gray-900 text-center mb-10 md:mb-16 tracking-tight">
-        Work Experience
-      </h2>
+    <div className="container mx-auto px-4   w-full">
+     
       <div className="max-w-3xl mx-auto space-y-8">
         {timelineData.map((item, index) => (
           <motion.div
