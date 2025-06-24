@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaBars } from "react-icons/fa";
-import { FaX } from "react-icons/fa6";
+import { FaBars, FaX } from "react-icons/fa6";
 
 export default function Navbar() {
     const tabs = [
@@ -13,11 +12,11 @@ export default function Navbar() {
     ];
 
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isOpen, setIsOpen] = useState(false); // For mobile menu toggle
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50); // Trigger effect after scrolling 50px
+            setIsScrolled(window.scrollY > 50);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -31,35 +30,36 @@ export default function Navbar() {
         if (section) {
             section.scrollIntoView({ behavior: "smooth", block: "start" });
         }
+        setIsOpen(false); // Close mobile menu after clicking
     };
 
     return (
         <nav
-            className={`pb-4 h-[4rem] md:px-0 sticky -top-0 w-screen z-50 transition-all duration-300 ${
+            className={`fixed top-0 w-full z-50 transition-all duration-300 ${
                 isScrolled
-                    ? "bg-white bg-opacity-70 shadow-md backdrop-blur-md"
+                    ? "bg-white bg-opacity-90 shadow-md backdrop-blur-md"
                     : "bg-transparent"
             }`}
         >
-            <div className="flex items-center justify-between p-4 bg-white text-gray-600 md:w-screen lg:px-4 lg:container lg:mx-auto">
-                <div className="flex items-center gap-5">
+            <div className="flex items-center justify-between px-4 py-4 w-full bg-white text-gray-600 md:px-8 lg:px-16">
+                <div className="flex items-center gap-4">
                     <img
                         src="/aine.jpeg"
-                        alt=""
-                        className="w-10 h-10 rounded-full"
+                        alt="Profile"
+                        className="w-10 h-10 rounded-full object-cover"
                     />
-                    <h2>Dushimire</h2>
+                    <h2 className="text-lg font-semibold text-gray-800">Dushimire</h2>
                 </div>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex gap-5 items-center px-2">
+                <div className="hidden md:flex gap-6 items-center">
                     {tabs.map((tab, index) => (
                         <button
                             key={index}
                             onClick={() => handleScrollToSection(tab.path)}
-                            className={`text-sm font-medium hover:text-gray-900 transition-all duration-300 ${
+                            className={`text-sm font-medium transition-all duration-300 hover:text-[#A53DFF] ${
                                 index === tabs.length - 1
-                                    ? "bg-[#A53DFF] text-white px-4 py-2 rounded-md"
+                                    ? "bg-[#A53DFF] text-white px-4 py-2 rounded-md hover:bg-purple-700"
                                     : isScrolled
                                     ? "text-gray-900"
                                     : "text-gray-600"
@@ -75,6 +75,7 @@ export default function Navbar() {
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         className="text-[#A53DFF] hover:text-gray-900 focus:outline-none"
+                        aria-label={isOpen ? "Close menu" : "Open menu"}
                     >
                         {isOpen ? <FaX size={24} /> : <FaBars size={24} />}
                     </button>
@@ -83,19 +84,16 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden bg-white absolute top-16 left-0 w-full shadow-lg z-40">
-                    <div className="flex flex-col items-center py-4 space-y-2">
+                <div className="md:hidden bg-white w-full shadow-lg z-40 absolute top-16 left-0">
+                    <div className="flex flex-col items-center py-6 space-y-3">
                         {tabs.map((tab, index) => (
                             <button
                                 key={index}
-                                onClick={() => {
-                                    handleScrollToSection(tab.path);
-                                    setIsOpen(false); // Close menu after clicking
-                                }}
-                                className={`text-md font-medium ${
+                                onClick={() => handleScrollToSection(tab.path)}
+                                className={`text-md font-medium w-32 text-center py-2 rounded-md transition-colors duration-300 ${
                                     index === tabs.length - 1
-                                        ? "bg-[#A53DFF] text-white px-4 py-2 rounded-md w-32 text-center"
-                                        : "text-gray-800 hover:text-gray-900 transition"
+                                        ? "bg-[#A53DFF] text-white hover:bg-purple-700"
+                                        : "text-gray-800 hover:text-[#A53DFF]"
                                 }`}
                             >
                                 {tab.name}

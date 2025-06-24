@@ -57,8 +57,8 @@ export default function AboutMe() {
         <div className="container mx-auto p-10 flex flex-col lg:flex-row items-center justify-between md:justify-center shadow-sm md:gap-[300px]">
             <img src="/aine.jpeg" alt="" className="w-28  lg:w-[350px] rounded-md" />
             <div className="flex flex-col text-center md:text-left text-gray-600 gap-4">
-                <h2 className="text-xl md:text-left text-center p-2 md:p-0 font-semibold text-black">
-                    I am a Professional <br /> Software Developer
+                <h2 className="text-xl w-full md:text-left text-center p-2 md:p-0 font-semibold text-black">
+                    I am a Professional  Software Developer
                 </h2>
                 <p className="text-md w-[300px] md:p-0 md:w-[450px]">
                     I design and develop services for customers, specializing in creating stylish, modern websites, web
