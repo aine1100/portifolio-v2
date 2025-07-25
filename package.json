@@ -6,7 +6,7 @@
   "packageManager": "npm@8.5.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "check-types": "tsc --noEmit"
