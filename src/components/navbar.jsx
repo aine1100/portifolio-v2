@@ -14,6 +14,7 @@ export default function Navbar() {
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +26,44 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    // Observe all sections
+    tabs.forEach((tab) => {
+      const element = document.getElementById(tab.path);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      tabs.forEach((tab) => {
+        const element = document.getElementById(tab.path);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
+  }, [tabs]);
 
   const handleScrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -63,23 +102,40 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6 items-center">
-          {tabs.map((tab, index) => (
-            <motion.button
-              key={index}
-              onClick={() => handleScrollToSection(tab.path)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="text-sm font-medium transition-all duration-300 relative text-white hover:text-indigo-400"
-            >
-              {tab.name}
-              <motion.div
-                className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-600"
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.button>
-          ))}
+          {tabs.map((tab, index) => {
+            const isActive = activeSection === tab.path;
+            return (
+              <motion.button
+                key={index}
+                onClick={() => handleScrollToSection(tab.path)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`text-sm font-medium transition-all duration-300 relative px-3 py-2 rounded-lg ${
+                  isActive
+                    ? "text-white bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/25"
+                    : "text-gray-300 hover:text-white hover:bg-gray-800/50"
+                }`}
+              >
+                {tab.name}
+                {!isActive && (
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-600"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+                {isActive && (
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-600/20 rounded-lg"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </motion.button>
+            );
+          })}
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -128,20 +184,27 @@ export default function Navbar() {
             className="md:hidden glass w-full shadow-lg overflow-hidden"
           >
             <div className="flex flex-col items-center py-6 space-y-3">
-              {tabs.map((tab, index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => handleScrollToSection(tab.path)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="text-md font-medium w-32 text-center py-3 rounded-xl transition-all duration-300 text-white hover:text-indigo-400 hover:bg-gray-800"
-                >
-                  {tab.name}
-                </motion.button>
-              ))}
+              {tabs.map((tab, index) => {
+                const isActive = activeSection === tab.path;
+                return (
+                  <motion.button
+                    key={index}
+                    onClick={() => handleScrollToSection(tab.path)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`text-md font-medium w-32 text-center py-3 rounded-xl transition-all duration-300 ${
+                      isActive
+                        ? "text-white bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/25"
+                        : "text-gray-300 hover:text-white hover:bg-gray-800"
+                    }`}
+                  >
+                    {tab.name}
+                  </motion.button>
+                );
+              })}
             </div>
           </motion.div>
         )}

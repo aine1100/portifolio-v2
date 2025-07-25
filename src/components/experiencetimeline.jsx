@@ -8,7 +8,7 @@ const Experience = () => {
       title: "Frontend Developer & Designer",
       company: "Insta Health",
       location: "Remote",
-      type: "Contract",
+      type: "Part-time",
       description:
         "Collaborated with a cross-functional team to develop responsive web and mobile applications for a healthcare platform. Designed intuitive user interfaces and implemented performant frontend solutions to enhance patient engagement and streamline health service delivery.",
       techStack: ["React", "Tailwind CSS", "Figma", "TypeScript", "Vite"],
@@ -178,17 +178,7 @@ const Experience = () => {
         </div>
 
         {/* Bottom Decoration */}
-        <motion.div 
-          className="flex justify-center mt-12"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold shadow-lg">
-            More exciting projects coming soon! 🚀
-          </div>
-        </motion.div>
+       
       </div>
     </div>
   );
