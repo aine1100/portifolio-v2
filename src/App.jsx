@@ -5,10 +5,7 @@ import Navbar from "./components/navbar";
 import Hero from "./components/Hero";
 import AboutMe from "./components/about";
 import Project from "./components/project";
-import WorkWithMe from "./components/work";
 import Contact from "./components/contact";
-import Footer from "./components/footer";
-import WorkExperience from "./components/experience";
 
 // Modern Loading Component
 const ModernLoader = () => (
@@ -40,9 +37,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Enable dark mode by default
-    document.documentElement.classList.add("dark");
-
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2500);
@@ -51,7 +45,7 @@ function App() {
   }, []);
 
   return (
-    <div className="dark">
+    <div className="bg-white min-h-screen">
       <AnimatePresence>
         {isLoading ? (
           <ModernLoader key="loader" />
@@ -60,83 +54,49 @@ function App() {
             key="main"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="min-h-screen bg-gray-900 text-white overflow-x-hidden relative"
+            transition={{ duration: 0.6 }}
+            className="min-h-screen bg-white text-gray-900"
           >
-            {/* Animated Background */}
-            <div className="fixed inset-0 z-0">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-50" />
-              <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" />
-              <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse delay-1000" />
-            </div>
+            <Navbar />
 
-            {/* Gradient Overlay */}
-            <div className="fixed inset-0 bg-gradient-to-br from-gray-900/90 via-gray-900/95 to-gray-800/90 z-10" />
+            <motion.section
+              id="home"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Hero />
+            </motion.section>
 
-            {/* Content */}
-            <div className="relative z-20">
-              <Navbar />
+            <motion.section
+              id="about"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <AboutMe />
+            </motion.section>
 
-              <motion.section
-                id="home"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <Hero />
-              </motion.section>
+            <motion.section
+              id="work"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <Project />
+            </motion.section>
 
-              <motion.section
-                id="about"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <AboutMe />
-              </motion.section>
-
-              <motion.section
-                id="techstacks"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <Project />
-                <WorkExperience />
-              </motion.section>
-
-              <motion.section
-                id="portfolio"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <WorkWithMe />
-              </motion.section>
-
-              <motion.section
-                id="services"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <Contact />
-              </motion.section>
-
-              <motion.section
-                id="contacts"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <Footer />
-              </motion.section>
-            </div>
+            <motion.section
+              id="contact"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <Contact />
+            </motion.section>
           </motion.div>
         )}
       </AnimatePresence>
