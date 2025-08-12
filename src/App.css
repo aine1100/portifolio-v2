@@ -5,7 +5,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,7 @@
   height: 60px;
   border: 3px solid transparent;
   border-radius: 50%;
-  background: linear-gradient(45deg, #6366f1, #8b5cf6, #06b6d4) border-box;
+  background: linear-gradient(45deg, #1a1a1a, #0f6fb9, #09cd34) border-box;
   mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   mask-composite: xor;
   position: relative;
@@ -42,7 +42,7 @@
 
 .loading-text {
   font-size: 1.125rem;
-  color: #ffffff;
+  color: black;
   font-weight: 500;
   letter-spacing: 0.05em;
 }
@@ -58,16 +58,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: white;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6366f1;
+  background: #1a1a1a;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4f46e5;
+  background: #1a1a1a;
 }
 
 /* Glass morphism effect */
