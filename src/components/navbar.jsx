@@ -1,9 +1,9 @@
 import { useState, useEffect, useMemo } from "react";
-import { motion } from "framer-motion";
 
 export default function Navbar() {
   const tabs = useMemo(() => [
     { name: "About", path: "about" },
+    { name: "Experience", path: "experience" },
     { name: "Work", path: "work" },
     { name: "Contact", path: "contact" },
   ], []);
@@ -47,33 +47,26 @@ export default function Navbar() {
   };
 
   return (
-    <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-      className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100"
-    >
+    <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 animate-fade-in-down">
       <div className="max-w-4xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <motion.button
+          <button
             onClick={() => handleScrollToSection("home")}
-            whileHover={{ scale: 1.02 }}
-            className="text-xl font-bold text-gray-900 hover:text-gray-700 transition-colors"
+            className="text-xl font-bold text-gray-900 hover:text-gray-700 transition-colors hover-scale"
           >
             Dushimire Aine
-          </motion.button>
+          </button>
 
           {/* Navigation */}
           <div className="flex items-center space-x-8">
             {tabs.map((tab, index) => {
               const isActive = activeSection === tab.path;
               return (
-                <motion.button
+                <button
                   key={index}
                   onClick={() => handleScrollToSection(tab.path)}
-                  whileHover={{ y: -1 }}
-                  className={`text-sm font-medium transition-colors duration-200 ${
+                  className={`relative text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 ${
                     isActive 
                       ? "text-gray-900" 
                       : "text-gray-600 hover:text-gray-900"
@@ -81,19 +74,14 @@ export default function Navbar() {
                 >
                   {tab.name}
                   {isActive && (
-                    <motion.div
-                      layoutId="activeIndicator"
-                      className="h-0.5 bg-gray-900 mt-1"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                    />
+                    <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gray-900 animate-scale-in" />
                   )}
-                </motion.button>
+                </button>
               );
             })}
           </div>
         </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 }

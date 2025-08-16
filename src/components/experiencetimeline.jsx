@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
 import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const Experience = () => {
+const ExperienceTimeline = () => {
+  const sectionRef = useScrollAnimation();
+
   const timelineData = [
     {
       date: "August 2024 - January 2025",
@@ -67,121 +69,133 @@ const Experience = () => {
 
   const getTypeColor = (type) => {
     switch (type) {
-      case "Full-time": return "from-green-500 to-emerald-500";
-      case "Part-time": return "from-blue-500 to-cyan-500";
-      case "Contract": return "from-orange-500 to-yellow-500";
-      case "Freelance": return "from-purple-500 to-pink-500";
-      default: return "from-gray-500 to-gray-600";
+      case "Full-time": return "bg-green-100 text-green-800 border-green-200";
+      case "Part-time": return "bg-blue-100 text-blue-800 border-blue-200";
+      case "Contract": return "bg-orange-100 text-orange-800 border-orange-200";
+      case "Freelance": return "bg-purple-100 text-purple-800 border-purple-200";
+      default: return "bg-gray-100 text-gray-800 border-gray-200";
     }
   };
 
   return (
-    <div className="container mx-auto px-4 w-full">
-      <div className="max-w-4xl mx-auto relative">
-        {/* Timeline Line */}
-        <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px h-full w-0.5 bg-gradient-to-b from-indigo-500 to-purple-600"></div>
-        
-        <div className="space-y-12">
-          {timelineData.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className={`relative flex items-center ${
-                index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-              } flex-col md:gap-8`}
-            >
-              {/* Timeline Dot */}
-              <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full border-4 border-gray-900 z-10 shadow-lg"></div>
-              
-              {/* Content Card */}
-              <motion.div
-                whileHover={{ 
-                  scale: 1.02,
-                  rotateY: index % 2 === 0 ? 2 : -2
-                }}
-                className={`w-full md:w-5/12 ml-16 md:ml-0 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8 shadow-2xl hover:shadow-indigo-500/10 transition-all duration-300 ${
-                  index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'
-                }`}
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                {/* Header */}
-                <div className="flex flex-col gap-3 mb-4">
-                  <div className="flex items-center gap-3 flex-wrap">
-                    <span className={`px-3 py-1 text-xs font-semibold bg-gradient-to-r ${getTypeColor(item.type)} text-white rounded-full`}>
-                      {item.type}
-                    </span>
-                    <div className="flex items-center gap-2 text-gray-400 text-sm">
-                      <FaCalendarAlt size={12} />
-                      <span>{item.date}</span>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
-                    {item.title}
-                  </h3>
-                  
-                  <div className="flex items-center gap-4 text-gray-300">
-                    <div className="flex items-center gap-2">
-                      <FaBriefcase size={14} />
-                      <span className="font-semibold">{item.company}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <FaMapMarkerAlt size={14} />
-                      <span>{item.location}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Description */}
-                <p className="text-gray-300 mb-6 leading-relaxed">
-                  {item.description}
-                </p>
-
-                {/* Key Achievements */}
-                <div className="mb-6">
-                  <h4 className="text-white font-semibold mb-3">Key Achievements:</h4>
-                  <ul className="space-y-2">
-                    {item.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start gap-2 text-gray-300 text-sm">
-                        <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Tech Stack */}
-                <div>
-                  <h4 className="text-white font-semibold mb-3">Technologies Used:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {item.techStack.map((tech, i) => (
-                      <motion.span
-                        key={i}
-                        whileHover={{ scale: 1.1 }}
-                        className="px-3 py-1 text-xs font-medium text-indigo-300 bg-indigo-500/20 border border-indigo-500/30 rounded-full backdrop-blur-sm hover:bg-indigo-500/30 transition-colors duration-300"
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Decorative Elements */}
-                <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-indigo-500/10 to-purple-600/10 rounded-full blur-xl"></div>
-                <div className="absolute bottom-4 left-4 w-16 h-16 bg-gradient-to-br from-purple-500/10 to-pink-600/10 rounded-full blur-xl"></div>
-              </motion.div>
-            </motion.div>
-          ))}
+    <section className="py-20 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6">
+        <div 
+          ref={sectionRef}
+          className="fade-in-on-scroll text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Work Experience
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            My professional journey in software development and design, working with amazing teams 
+            and building impactful solutions.
+          </p>
         </div>
 
-        {/* Bottom Decoration */}
-       
+        <div className="max-w-4xl mx-auto relative">
+          {/* Timeline Line */}
+          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px h-full w-0.5 bg-gradient-to-b from-gray-300 to-gray-400"></div>
+          
+          <div className="space-y-12">
+            {timelineData.map((item, index) => (
+              <div
+                key={index}
+                className={`fade-in-on-scroll relative flex items-center ${
+                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                } flex-col md:gap-8`}
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                {/* Timeline Dot */}
+                <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-4 border-gray-400 rounded-full z-10 shadow-lg"></div>
+                
+                {/* Content Card */}
+                <div
+                  className={`w-full md:w-5/12 ml-16 md:ml-0 bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-lg hover-lift transition-all duration-300 ${
+                    index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'
+                  }`}
+                >
+                  {/* Header */}
+                  <div className="flex flex-col gap-3 mb-4">
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <span className={`px-3 py-1 text-xs font-semibold border rounded-full ${getTypeColor(item.type)}`}>
+                        {item.type}
+                      </span>
+                      <div className="flex items-center gap-2 text-gray-500 text-sm">
+                        <FaCalendarAlt size={12} />
+                        <span>{item.date}</span>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+                      {item.title}
+                    </h3>
+                    
+                    <div className="flex items-center gap-4 text-gray-600">
+                      <div className="flex items-center gap-2">
+                        <FaBriefcase size={14} />
+                        <span className="font-semibold">{item.company}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <FaMapMarkerAlt size={14} />
+                        <span>{item.location}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  {/* Key Achievements */}
+                  <div className="mb-6">
+                    <h4 className="text-gray-900 font-semibold mb-3">Key Achievements:</h4>
+                    <ul className="space-y-2">
+                      {item.achievements.map((achievement, i) => (
+                        <li key={i} className="flex items-start gap-2 text-gray-600 text-sm">
+                          <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                          <span>{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Tech Stack */}
+                  <div>
+                    <h4 className="text-gray-900 font-semibold mb-3">Technologies Used:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {item.techStack.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 border border-gray-200 rounded-full hover:bg-gray-200 transition-colors duration-200 hover-scale"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="fade-in-on-scroll text-center mt-16">
+          <p className="text-gray-600 mb-6">
+            Interested in working together?
+          </p>
+          <a
+            href="#contact"
+            className="inline-block px-8 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 hover-scale"
+          >
+            Let&apos;s Connect
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Experience;
+export default ExperienceTimeline;

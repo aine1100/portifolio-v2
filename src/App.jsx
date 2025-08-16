@@ -1,36 +1,43 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import "./App.css";
 import Navbar from "./components/navbar";
 import Hero from "./components/Hero";
 import AboutMe from "./components/about";
 import Project from "./components/project";
+import ExperienceTimeline from "./components/experiencetimeline";
 import Contact from "./components/contact";
+
+// Initialize scroll animations
+const initScrollAnimations = () => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  );
+
+  // Observe all elements with fade-in-on-scroll class
+  document.querySelectorAll('.fade-in-on-scroll').forEach((el) => {
+    observer.observe(el);
+  });
+
+  return observer;
+};
 
 // Modern Loading Component
 const ModernLoader = () => (
-  <motion.div
-    className="loading-screen-modern"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-  >
+  <div className="loading-screen-modern animate-fade-in">
     <div className="loader-container">
-      <motion.div
-        className="modern-spinner"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.p
-        className="loading-text"
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
+      <div className="modern-spinner" />
+      <p className="loading-text animate-fade-in-up animate-stagger-3">
         Crafting Experience...
-      </motion.p>
+      </p>
     </div>
-  </motion.div>
+  </div>
 );
 
 function App() {
@@ -39,67 +46,48 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    if (!isLoading) {
+      // Initialize scroll animations after loading
+      const observer = initScrollAnimations();
+      return () => observer.disconnect();
+    }
+  }, [isLoading]);
+
+  if (isLoading) {
+    return <ModernLoader />;
+  }
+
   return (
-    <div className="bg-white min-h-screen">
-      <AnimatePresence>
-        {isLoading ? (
-          <ModernLoader key="loader" />
-        ) : (
-          <motion.div
-            key="main"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="min-h-screen bg-white text-gray-900"
-          >
-            <Navbar />
+    <div className="bg-white min-h-screen animate-fade-in">
+      <div className="min-h-screen bg-white text-gray-900">
+        <Navbar />
 
-            <motion.section
-              id="home"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <Hero />
-            </motion.section>
+        <section id="home" className="fade-in-on-scroll visible">
+          <Hero />
+        </section>
 
-            <motion.section
-              id="about"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true, margin: "-50px" }}
-            >
-              <AboutMe />
-            </motion.section>
+        <section id="about" className="fade-in-on-scroll">
+          <AboutMe />
+        </section>
 
-            <motion.section
-              id="work"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true, margin: "-50px" }}
-            >
-              <Project />
-            </motion.section>
+        <section id="experience" className="fade-in-on-scroll">
+          <ExperienceTimeline />
+        </section>
 
-            <motion.section
-              id="contact"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true, margin: "-50px" }}
-            >
-              <Contact />
-            </motion.section>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <section id="work" className="fade-in-on-scroll">
+          <Project />
+        </section>
+
+        <section id="contact" className="fade-in-on-scroll">
+          <Contact />
+        </section>
+      </div>
     </div>
   );
 }
