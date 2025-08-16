@@ -34,14 +34,14 @@ export default function Contact() {
       // Send email using EmailJS
       await emailjs.send(
         "service_r2w7o4a", // Replace with your EmailJS Service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS Template ID
+        "template_cuoo435", // Replace with your EmailJS Template ID
         {
           from_name: formData.Name,
           from_email: formData.Email,
           message: formData.Message,
           to_email: "ainedushimire@gmail.com",
         },
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS Public Key
+        "kT9n9xH7-h0GRDad7" // Replace with your EmailJS Public Key
       );
 
       setFormData({ Name: "", Email: "", Message: "" });
