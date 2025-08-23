@@ -9,138 +9,147 @@ import {
 export default function Project() {
   const [activeTab, setActiveTab] = useState("webapps");
 
-  const webApps = useMemo(() => [
-    {
-      title: "Hinga",
-      description:
-        "An online platform connecting farmers with shops and markets through a marketplace for selling agricultural products.",
-      image: "/hinga.png",
-      tech: ["React", "Spring Boot", "PostgreSQL", "Tailwind CSS"],
-      github: "https://github.com/aine1100/hinga_Backend/",
-      live: "",
-      category: "Full Stack",
-    },
-    {
-      title: "Ivugire",
-      description:
-        "A dynamic platform connecting community members with leaders to address local problems and concerns.",
-      image: "/ivugire.png",
-      tech: ["React.js", "TypeScript", "Node.js", "MongoDB"],
-      github: "https://github.com/aine1100",
-      live: "https://ivugire-v2.vercel.app/",
-      category: "Full Stack",
-    },
-    {
-      title: "NeuroLab",
-      description:
-        "A neuroscience research platform with interactive dashboards and data visualizations for seamless user experience.",
-      image: "/neurolab.png",
-      tech: ["React", "Tailwind CSS", "Vite"],
-      github: "https://github.com/aine1100/neurolab",
-      live: "https://neurolab.cc/",
-      category: "Frontend",
-    },
-    {
-      title: "Job Seeker",
-      description:
-        "A job search platform with advanced filtering and real-time job listings for an intuitive user journey.",
-      image: "/image.png",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-      github: "https://github.com/aine1100/job-seeker",
-      live: "https://job-bqyyti362-aine.vercel.app/",
-      category: "Frontend",
-    },
-    {
-      title: "TravelBag",
-      description:
-        "A travel planning web app with itinerary creation and destination exploration features.",
-      image: "/image copy 2.png",
-      tech: ["Vue.js", "Pinia", "Tailwind CSS"],
-      github: "https://github.com/aine1100/travelbag",
-      live: "https://travel-bag-ox6y.vercel.app/",
-      category: "Frontend",
-    },
-    {
-      title: "Expense Tracker",
-      description:
-        "A minimalist budgeting app for tracking expenses and visualizing financial data with clean interface.",
-      image: "/image copy 3.png",
-      tech: ["React", "Chakra UI", "Vite"],
-      github: "https://github.com/aine1100/expense-tracker",
-      live: "https://simple-expense-tracker-dun.vercel.app/",
-      category: "Frontend",
-    },
-  ], []);
+  const webApps = useMemo(
+    () => [
+      {
+        title: "Hinga",
+        description:
+          "An online platform connecting farmers with shops and markets through a marketplace for selling agricultural products.",
+        image: "/hinga.png",
+        tech: ["React", "Spring Boot", "PostgreSQL", "Tailwind CSS"],
+        github: "https://github.com/aine1100/hinga_Backend/",
+        live: "",
+        category: "Full Stack",
+      },
+      {
+        title: "Ivugire",
+        description:
+          "A dynamic platform connecting community members with leaders to address local problems and concerns.",
+        image: "/ivugire.png",
+        tech: ["React.js", "TypeScript", "Node.js", "MongoDB"],
+        github: "https://github.com/aine1100",
+        live: "https://ivugire-v2.vercel.app/",
+        category: "Full Stack",
+      },
+      {
+        title: "NeuroLab",
+        description:
+          "A neuroscience research platform with interactive dashboards and data visualizations for seamless user experience.",
+        image: "/neurolab.png",
+        tech: ["React", "Tailwind CSS", "Vite"],
+        github: "https://github.com/aine1100/neurolab",
+        live: "https://neurolab.cc/",
+        category: "Frontend",
+      },
+      {
+        title: "Job Seeker",
+        description:
+          "A job search platform with advanced filtering and real-time job listings for an intuitive user journey.",
+        image: "/image.png",
+        tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+        github: "https://github.com/aine1100/job-seeker",
+        live: "https://job-bqyyti362-aine.vercel.app/",
+        category: "Frontend",
+      },
+      {
+        title: "TravelBag",
+        description:
+          "A travel planning web app with itinerary creation and destination exploration features.",
+        image: "/image copy 2.png",
+        tech: ["Vue.js", "Pinia", "Tailwind CSS"],
+        github: "https://github.com/aine1100/travelbag",
+        live: "https://travel-bag-ox6y.vercel.app/",
+        category: "Frontend",
+      },
+      {
+        title: "Expense Tracker",
+        description:
+          "A minimalist budgeting app for tracking expenses and visualizing financial data with clean interface.",
+        image: "/image copy 3.png",
+        tech: ["React", "Chakra UI", "Vite"],
+        github: "https://github.com/aine1100/expense-tracker",
+        live: "https://simple-expense-tracker-dun.vercel.app/",
+        category: "Frontend",
+      },
+    ],
+    []
+  );
 
-  const designs = useMemo(() => [
-    {
-      title: "Health Track",
-      description:
-        "A modern gym app design focusing on data collection with vibrant colors and intuitive navigation for easy user experience.",
-      image: "/health.png",
-      tech: ["Figma", "Adobe XD"],
-      figma:
-        "https://www.figma.com/design/hg2hMxL9go0lcXwA2U1l4Q/fitness-app?node-id=43-612&t=JZiGC52rMCKaOnVz-0",
-      category: "Mobile App Design",
-    },
-    {
-      title: "E-record",
-      description:
-        "A modern SaaS product design focusing on enhancing school financial reports with clean typography and vibrant colors.",
-      image: "/e-record.png",
-      tech: ["Figma", "Adobe XD"],
-      figma:
-        "https://www.figma.com/design/bkxykvSJK5cju1lEfURypZ/e_record?node-id=1-2&t=zaVmlj45ThjjMBpb-0",
-      category: "Web App Design",
-    },
-    {
-      title: "SawaPay",
-      description:
-        "A fintech website design with focus on clean typography, vibrant colors, and intuitive navigation for seamless payment experiences.",
-      image: "/image copy 5.png",
-      tech: ["Figma", "Adobe XD"],
-      figma:
-        "https://www.figma.com/design/ModrnmYkkBs4nmZLakDfX3/SAWA-PAY?node-id=0-1&node-type=canvas&t=7FU33trcvKXesgve-0",
-      category: "Web Design",
-    },
-    {
-      title: "Gymn Fitness",
-      description:
-        "A fitness center landing page design featuring bold visuals, interactive elements, and modern layout to attract gym-goers.",
-      image: "/image copy 6.png",
-      tech: ["Figma", "Sketch"],
-      figma:
-        "https://www.figma.com/design/SLYbIC6ECB7zhXKX4g0t6x/Gymn-center-Landing-page?node-id=0-1&node-type=canvas&t=DeytUqsm8VbbhiCT-0",
-      category: "Landing Page",
-    },
-    {
-      title: "IQS Authority",
-      description:
-        "A comprehensive quality assurance platform design with modern interface for managing standards and certifications.",
-      image: "/iqs.jpeg",
-      tech: ["Figma", "Adobe XD"],
-      figma: "https://www.figma.com/design/wMaOgRaTU1goNNrvNqkWPT/Iqs-Authority?node-id=87-121&t=OtMpuMKJp0FeHNO1-0",
-      category: "Web App Design",
-    },
-    {
-      title: "Food Delivery App",
-      description:
-        "A modern food delivery mobile app design with intuitive ordering flow and vibrant food photography integration.",
-      image: "/food.png",
-      tech: ["Figma", "Sketch"],
-      figma: "https://www.figma.com/design/JqqwZYg7Pg1ed8F7dmMoOs/Food-App-Ui-Kit-v2--Community-",
-      category: "Mobile App Design",
-    },
-    {
-      title: "Finance Manager",
-      description:
-        "A comprehensive personal finance management mobile app with budget tracking, expense categorization, and financial insights.",
-      image: "/fintech.png",
-      tech: ["Figma", "Adobe XD"],
-      figma: "https://www.figma.com/design/sCiDhLi4qyWjefa46Hzt4F/Fintech-App-UI-KIT--Brees-Mobile-App--Community-?m=auto&t=skp6L68DiFnVnAiX-6",
-      category: "Mobile App Design",
-    },
-  ], []);
+  const designs = useMemo(
+    () => [
+      {
+        title: "Health Track",
+        description:
+          "A modern gym app design focusing on data collection with vibrant colors and intuitive navigation for easy user experience.",
+        image: "/health.png",
+        tech: ["Figma", "Adobe XD"],
+        figma:
+          "https://www.figma.com/design/hg2hMxL9go0lcXwA2U1l4Q/fitness-app?node-id=43-612&t=JZiGC52rMCKaOnVz-0",
+        category: "Mobile App Design",
+      },
+      {
+        title: "E-record",
+        description:
+          "A modern SaaS product design focusing on enhancing school financial reports with clean typography and vibrant colors.",
+        image: "/e-record.png",
+        tech: ["Figma", "Adobe XD"],
+        figma:
+          "https://www.figma.com/design/bkxykvSJK5cju1lEfURypZ/e_record?node-id=1-2&t=zaVmlj45ThjjMBpb-0",
+        category: "Web App Design",
+      },
+      {
+        title: "SawaPay",
+        description:
+          "A fintech website design with focus on clean typography, vibrant colors, and intuitive navigation for seamless payment experiences.",
+        image: "/image copy 5.png",
+        tech: ["Figma", "Adobe XD"],
+        figma:
+          "https://www.figma.com/design/ModrnmYkkBs4nmZLakDfX3/SAWA-PAY?node-id=0-1&node-type=canvas&t=7FU33trcvKXesgve-0",
+        category: "Web Design",
+      },
+      {
+        title: "Gymn Fitness",
+        description:
+          "A fitness center landing page design featuring bold visuals, interactive elements, and modern layout to attract gym-goers.",
+        image: "/image copy 6.png",
+        tech: ["Figma", "Sketch"],
+        figma:
+          "https://www.figma.com/design/SLYbIC6ECB7zhXKX4g0t6x/Gymn-center-Landing-page?node-id=0-1&node-type=canvas&t=DeytUqsm8VbbhiCT-0",
+        category: "Landing Page",
+      },
+      {
+        title: "IQS Authority",
+        description:
+          "A comprehensive quality assurance platform design with modern interface for managing standards and certifications.",
+        image: "/iqs.jpeg",
+        tech: ["Figma", "Adobe XD"],
+        figma:
+          "https://www.figma.com/design/wMaOgRaTU1goNNrvNqkWPT/Iqs-Authority?node-id=87-121&t=OtMpuMKJp0FeHNO1-0",
+        category: "Web App Design",
+      },
+      {
+        title: "Food Delivery App",
+        description:
+          "A modern food delivery mobile app design with intuitive ordering flow and vibrant food photography integration.",
+        image: "/food.png",
+        tech: ["Figma", "Sketch"],
+        figma:
+          "https://www.figma.com/design/JqqwZYg7Pg1ed8F7dmMoOs/Food-App-Ui-Kit-v2--Community-",
+        category: "Mobile App Design",
+      },
+      {
+        title: "Finance Manager",
+        description:
+          "A comprehensive personal finance management mobile app with budget tracking, expense categorization, and financial insights.",
+        image: "/fintech.png",
+        tech: ["Figma", "Adobe XD"],
+        figma:
+          "https://www.figma.com/design/sCiDhLi4qyWjefa46Hzt4F/Fintech-App-UI-KIT--Brees-Mobile-App--Community-?m=auto&t=skp6L68DiFnVnAiX-6",
+        category: "Mobile App Design",
+      },
+    ],
+    []
+  );
 
   // Memoize projects to avoid re-creating arrays on each render
   const currentProjects = useMemo(() => {
@@ -283,7 +292,7 @@ export default function Project() {
               <button
                 onClick={() => setActiveTab("designs")}
                 className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-150 ${
-                  activeTab === "design"
+                  activeTab === "designs"
                     ? "bg-white text-gray-900 shadow-sm"
                     : "text-gray-600 hover:text-gray-900"
                 }`}
