@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
-import emailjs from "@emailjs/browser";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export default function Contact() {
@@ -9,7 +8,7 @@ export default function Contact() {
     Email: "",
     Message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const sectionRef = useScrollAnimation();
 
   const socialLinks = [
@@ -26,30 +25,15 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Send email using EmailJS
-      await emailjs.send(
-        "service_r2w7o4a", // Replace with your EmailJS Service ID
-        "template_cuoo435", // Replace with your EmailJS Template ID
-        {
-          from_name: formData.Name,
-          from_email: formData.Email,
-          message: formData.Message,
-          to_email: "ainedushimire@gmail.com",
-        },
-        "kT9n9xH7-h0GRDad7" // Replace with your EmailJS Public Key
-      );
-
-      setFormData({ Name: "", Email: "", Message: "" });
-    } catch (error) {
-      console.error("Error sending email: ", error);
-    } finally {
-      setIsSubmitting(false);
-    }
+    
+    const subject = `Portfolio Contact from ${formData.Name}`;
+    const body = `Name: ${formData.Name}%0D%0AEmail: ${formData.Email}%0D%0A%0D%0AMessage:%0D%0A${formData.Message}`;
+    const mailtoLink = `mailto:ainedushimire@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    
+    window.open(mailtoLink, '_blank');
+    setFormData({ Name: "", Email: "", Message: "" });
   };
 
   return (
@@ -133,7 +117,7 @@ export default function Contact() {
                   value={formData.Email}
                   onChange={handleChange}
                   placeholder="Your Email"
-                  className="w-full px Grown px-4 py-3 text-gray-900 placeholder:text-gray-500 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400 focus:ring-2 focus:ring-gray-100 transition-all duration-200"
+                  className="w-full px-4 py-3 text-gray-900 placeholder:text-gray-500 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400 focus:ring-2 focus:ring-gray-100 transition-all duration-200"
                   required
                 />
               </div>
@@ -152,17 +136,9 @@ export default function Contact() {
 
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full py-3 px-8 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg transition-all duration-200 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed hover-scale"
+                className="w-full py-3 px-8 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg transition-all duration-200 flex items-center justify-center gap-3 hover-scale"
               >
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    Sending...
-                  </>
-                ) : (
-                  "Send Message"
-                )}
+                Send Message
               </button>
             </form>
           </div>

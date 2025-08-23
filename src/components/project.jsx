@@ -9,7 +9,7 @@ import {
 export default function Project() {
   const [activeTab, setActiveTab] = useState("webapps");
 
-  const webApps = [
+  const webApps = useMemo(() => [
     {
       title: "Hinga",
       description:
@@ -70,14 +70,14 @@ export default function Project() {
       live: "https://simple-expense-tracker-dun.vercel.app/",
       category: "Frontend",
     },
-  ];
+  ], []);
 
-  const designs = [
+  const designs = useMemo(() => [
     {
       title: "Health Track",
       description:
         "A modern gym app design focusing on data collection with vibrant colors and intuitive navigation for easy user experience.",
-      image: "/halt.png",
+      image: "/health.png",
       tech: ["Figma", "Adobe XD"],
       figma:
         "https://www.figma.com/design/hg2hMxL9go0lcXwA2U1l4Q/fitness-app?node-id=43-612&t=JZiGC52rMCKaOnVz-0",
@@ -113,7 +113,34 @@ export default function Project() {
         "https://www.figma.com/design/SLYbIC6ECB7zhXKX4g0t6x/Gymn-center-Landing-page?node-id=0-1&node-type=canvas&t=DeytUqsm8VbbhiCT-0",
       category: "Landing Page",
     },
-  ];
+    {
+      title: "IQS Authority",
+      description:
+        "A comprehensive quality assurance platform design with modern interface for managing standards and certifications.",
+      image: "/iqs.jpeg",
+      tech: ["Figma", "Adobe XD"],
+      figma: "https://www.figma.com/design/wMaOgRaTU1goNNrvNqkWPT/Iqs-Authority?node-id=87-121&t=OtMpuMKJp0FeHNO1-0",
+      category: "Web App Design",
+    },
+    {
+      title: "Food Delivery App",
+      description:
+        "A modern food delivery mobile app design with intuitive ordering flow and vibrant food photography integration.",
+      image: "/food.png",
+      tech: ["Figma", "Sketch"],
+      figma: "https://www.figma.com/design/JqqwZYg7Pg1ed8F7dmMoOs/Food-App-Ui-Kit-v2--Community-",
+      category: "Mobile App Design",
+    },
+    {
+      title: "Finance Manager",
+      description:
+        "A comprehensive personal finance management mobile app with budget tracking, expense categorization, and financial insights.",
+      image: "/fintech.png",
+      tech: ["Figma", "Adobe XD"],
+      figma: "https://www.figma.com/design/sCiDhLi4qyWjefa46Hzt4F/Fintech-App-UI-KIT--Brees-Mobile-App--Community-?m=auto&t=skp6L68DiFnVnAiX-6",
+      category: "Mobile App Design",
+    },
+  ], []);
 
   // Memoize projects to avoid re-creating arrays on each render
   const currentProjects = useMemo(() => {
@@ -254,7 +281,7 @@ export default function Project() {
                 Web Apps ({webApps.length})
               </button>
               <button
-                onClick={() => setActiveTab("design")}
+                onClick={() => setActiveTab("designs")}
                 className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-150 ${
                   activeTab === "design"
                     ? "bg-white text-gray-900 shadow-sm"

@@ -1,18 +1,25 @@
-import { defineConfig } from 'vite' // Correct import from 'vite'
-import react from '@vitejs/plugin-react' // Correct import for react plugin
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()], // Correct plugin usage
+  plugins: [react()],
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          icons: ['react-icons'] // Note: ensure 'react-icons' is installed
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor'
+            }
+            if (id.includes('react-icons')) {
+              return 'icons'
+            }
+            return 'vendor'
+          }
         }
       }
     },
-    chunkSizeWarningLimit: 1000 // This is fine
+    chunkSizeWarningLimit: 1000
   }
 })
