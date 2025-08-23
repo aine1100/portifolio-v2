@@ -161,7 +161,7 @@ export default function Project() {
 
   const ProjectCard = ({ project }) => {
     return (
-      <div className="fade-in-on-scroll bg-white rounded-xl border border-gray-200 overflow-hidden hover-lift transition-all duration-300">
+      <div className=" bg-white rounded-xl border border-gray-200 overflow-hidden hover-lift transition-all duration-300">
         {/* Project Image */}
         <div className="aspect-video bg-gray-100 overflow-hidden relative">
           <img
@@ -317,7 +317,7 @@ export default function Project() {
         </div>
 
         {/* View More */}
-        <div className="fade-in-on-scroll text-center mt-12">
+        <div className=" text-center mt-12">
           {activeTab === "webapps" ? (
             <a
               href="https://github.com/aine1100"
